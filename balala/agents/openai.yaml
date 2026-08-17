@@ -1,0 +1,4 @@
+interface:
+  display_name: "Balala"
+  short_description: "生成白底的 Balala 2D 或 3D 吉祥物形象"
+  default_prompt: "Use $balala to generate a white-background Balala performing the action I describe."
