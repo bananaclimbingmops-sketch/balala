@@ -29,13 +29,13 @@ Use the selected mode's identity image as the final authority. This text prevent
 - Match `assets/2d-avatar/identity/grin.png` for outline, proportions, ears, face patch, and head ornament.
 - Render only the iconic head by default: a broad horizontal silhouette, complete circular ears, warm yellow head, peach face patch, brown outline, and simple flat colors.
 - Let the mouth, eyelids, eyebrows, cheeks, and nose position vary only enough to communicate the requested expression.
-- Remove the beige source-card background and faint lettering. The result must be on pure white.
+- Remove the beige source-card background and faint lettering. Isolate the complete head cleanly for both white and transparent output variants.
 - Do not shrink a full-body drawing into an avatar; construct the dedicated head version.
 
 ## 3D Full Body
 
 - Match `assets/3d-full/identity/turnaround-front-side-back.png` for front/side/back geometry, tail construction, and the head-top banana stem. Match `front-presenting-transparent.png` for facial identity and `front-presenting-white.png` for clean studio material and outfit presentation only when those files do not conflict with the turnaround.
-- Use a polished stylized 3D mascot render with rounded volumes, a subtle tactile molded/fuzzy surface, soft studio lighting, and restrained contact shadow.
+- Use a polished stylized 3D mascot render with rounded volumes, a subtle tactile molded/fuzzy surface, and soft studio lighting. A restrained contact shadow is allowed only in the white version; omit floor and cast shadows from the transparent production asset unless explicitly requested.
 - Preserve the yellow short-sleeve shirt and warm cream shorts in the canonical 3D identity unless task-specific clothing is explicitly requested. If adding gear, layer it over rather than redesigning the character.
 - Keep the large rounded head and ears, peach face and inner ears, brown oval eyes, orange-red nose, broad segmented grin, sturdy limbs, and three rounded toes.
 - Keep the rear construction from the turnaround: a plain rounded yellow back of the head, symmetric protruding ears, and a yellow tail emerging from the lower back. The tail curves outward and ends in three stacked yellow gripping lobes wrapped around a short rounded brown cap.

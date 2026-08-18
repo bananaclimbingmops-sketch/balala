@@ -1,6 +1,6 @@
 # Balala Skill
 
-为香蕉攀岩吉祥物 Balala 生成品牌一致的纯白底图片。
+为香蕉攀岩吉祥物 Balala 生成品牌一致的白底图与真透明 PNG 素材。
 
 安装后，只需描述 Balala 正在做什么。Skill 会自动选择：
 
@@ -9,6 +9,13 @@
 - 3D 全身版：品牌主视觉、公仔感和宣传渲染
 
 所有版本都内置官方角色参考图。2D 四视图与 3D 三视图拥有最高几何优先级；3D 的尾巴末端和头顶香蕉柄以最新三视图为准。
+
+默认一次交付两张姿势、构图和道具完全一致的 PNG：
+
+- `balala-white.png`：纯白底预览版，方便审核、分享和直接用于白色版面
+- `balala-transparent.png`：带真实 Alpha 通道的免抠图素材版，方便海报、网页、周边和视频合成
+
+如果用户明确说“只要透明底”或“只要白底”，Skill 只输出指定版本。
 
 ## 效果预览
 
@@ -59,7 +66,13 @@ $balala 生成一个正在攀岩的 Balala
 也可以自然描述，由 Agent 根据 Skill 描述自动调用：
 
 ```text
-生成一个正在使用电脑的 Balala，白底。
+生成一个正在使用电脑的 Balala。
+```
+
+默认返回白底版和透明底版。也可以指定：
+
+```text
+$balala 生成一个正在使用电脑的 3D Balala，只要透明底 PNG。
 ```
 
 ## 依赖
@@ -68,10 +81,11 @@ $balala 生成一个正在攀岩的 Balala
 
 ## 内容
 
-- `balala/SKILL.md`：执行流程与白底输出规则
+- `balala/SKILL.md`：执行流程、模式路由与双输出规则
 - `balala/assets/`：23 张角色、动作、表情与转面参考图
 - `balala/references/`：角色规范、模式路由与提示词模板
-- `balala/scripts/validate_output.py`：白底、不透明度、尺寸和安全边距检查
+- `balala/scripts/make_transparent.py`：仅移除边缘连通的近白背景，保护牙齿、短裤等内部浅色细节
+- `balala/scripts/validate_output.py`：白底/透明底、Alpha、尺寸和安全边距检查
 
 ## 官方调用说明
 

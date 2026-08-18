@@ -29,5 +29,4 @@ Choose one mode before selecting references. Explicit user wording always wins w
 
 - Map “3D 头像” to `3d-full` only if the user accepts a full-body result; otherwise explain that the official modes do not include a dedicated 3D-avatar profile.
 - Map “2D 半身” to `2d-full` and preserve the complete body unless the user explicitly prioritizes the crop over the standard asset contract.
-- Keep white background as the default even if an action implies a location. Include only essential contact props such as a climbing hold, rope, laptop, phone, cake, or trophy.
-
+- Keep the isolated-character output contract even if an action implies a location. Include only essential contact props such as a climbing hold, rope, laptop, phone, cake, or trophy. Background selection is independent of visual mode: output both white and transparent PNGs by default, or honor an explicit request for only one variant.
