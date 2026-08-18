@@ -23,31 +23,57 @@
 |---|---|---|
 | ![2D Balala 抱石](examples/2d-full-bouldering.png) | ![2D Balala 惊讶头像](examples/2d-avatar-surprised.png) | ![3D Balala 举奖杯](examples/3d-full-trophy.png) |
 
-## 推荐安装方式
+## 从 Manus 安装
+
+在 Manus 的 Skills 页面选择“从 GitHub 导入”，粘贴公开仓库地址：
+
+```text
+https://github.com/bananaclimbingmops-sketch/balala
+```
+
+本仓库的 `SKILL.md` 位于根目录，符合 Manus 的 GitHub 导入要求。
+
+## 从 Codex 安装
 
 在 Codex 中发送：
 
 ```text
-Use $skill-installer to install the skill from https://github.com/bananaclimbingmops-sketch/balala/tree/main/balala
+Use $skill-installer to install bananaclimbingmops-sketch/balala from repository path "." with the skill name "balala".
 ```
 
 安装完成后，Skill 名称为 `balala`。
 
-## 手动安装
+## Agent Skills 通用安装
+
+本仓库遵循开放的 Agent Skills 目录约定。支持 Agent Skills 的客户端可以将整个仓库克隆到个人 Skill 目录：
 
 ```bash
-git clone https://github.com/bananaclimbingmops-sketch/balala.git
 mkdir -p ~/.agents/skills
-cp -R balala/balala ~/.agents/skills/balala
+git clone --depth 1 https://github.com/bananaclimbingmops-sketch/balala.git ~/.agents/skills/balala
 ```
 
-也可以下载仓库根目录的 `balala.skill.zip`，将其中的 `balala` 文件夹解压到：
+常见位置：
+
+- 跨客户端、GitHub Copilot：`~/.agents/skills/balala`
+- Claude Code：`~/.claude/skills/balala`
+- Codex：`~/.codex/skills/balala`
+
+也可以下载仓库根目录的 [`balala.skill.zip`](balala.skill.zip)：
+
+- Manus：直接上传 ZIP
+- 其他客户端：把 ZIP 内容解压到名为 `balala` 的 Skill 文件夹
+
+ZIP 顶层结构为：
 
 ```text
-~/.agents/skills/balala
+SKILL.md
+agents/
+assets/
+references/
+scripts/
 ```
 
-Codex 没有立即显示新 Skill 时，重新启动 Codex。
+客户端没有立即显示新 Skill 时，请重新启动或刷新 Skill 列表。
 
 ## 使用
 
@@ -81,12 +107,17 @@ $balala 生成一个正在使用电脑的 3D Balala，只要透明底 PNG。
 
 ## 内容
 
-- `balala/SKILL.md`：执行流程、模式路由与双输出规则
-- `balala/assets/`：23 张角色、动作、表情与转面参考图
-- `balala/references/`：角色规范、模式路由与提示词模板
-- `balala/scripts/make_transparent.py`：仅移除边缘连通的近白背景，保护牙齿、短裤等内部浅色细节
-- `balala/scripts/validate_output.py`：白底/透明底、Alpha、尺寸和安全边距检查
+- `SKILL.md`：执行流程、模式路由与双输出规则
+- `assets/`：23 张角色、动作、表情与转面参考图
+- `references/`：角色规范、模式路由与提示词模板
+- `scripts/make_transparent.py`：仅移除边缘连通的近白背景，保护牙齿、短裤等内部浅色细节
+- `scripts/validate_output.py`：白底/透明底、Alpha、尺寸和安全边距检查
+- `agents/openai.yaml`：支持该元数据的 OpenAI 客户端界面信息
 
 ## 官方调用说明
 
-OpenAI 文档说明：桌面端启用的 Skills 会显示在 `/` 命令列表中；Codex CLI 和 IDE 扩展通过 `$` 显式提及 Skill。不同客户端的界面可能不同，因此 `$balala` 是更通用的显式写法。
+- [Agent Skills 开放规范](https://agentskills.io/specification)
+- [Manus GitHub Skill 导入说明](https://help.manus.im/en/articles/14753565-how-to-share-and-use-skills-in-manus)
+- [GitHub Copilot Agent Skills 说明](https://docs.github.com/en/copilot/concepts/agents/about-agent-skills)
+
+不同客户端的调用界面可能不同：支持斜杠命令的客户端通常使用 `/balala`，Codex 也支持 `$balala` 显式调用。
